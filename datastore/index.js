@@ -89,7 +89,13 @@ exports.delete = (id, callback) => {
   //   callback();
   // }
 
-
+    fs.unlink(`${exports.dataDir}/${id}.txt`, (err) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback();
+      }
+    });
 };
 
 // Config+Initialization code -- DO NOT MODIFY /////////////////////////////////
